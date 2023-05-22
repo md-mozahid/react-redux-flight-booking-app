@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import frame1 from '../assets/icons/Frame.svg'
+import vector1 from '../assets/icons/Vector (1).svg'
+import vector3 from '../assets/icons/Vector (3).svg'
 import { AddBooking } from '../redux/Actions'
 
 const FlightInfo = () => {
@@ -31,7 +34,7 @@ const FlightInfo = () => {
             <div className="des-from">
               <p>Destination From</p>
               <div className="flex flex-row">
-                <img src="./img/icons/Frame.svg" alt="" />
+                <img src={frame1} alt="" />
                 <select
                   className="outline-none px-2 py-2 w-full"
                   name="from"
@@ -52,7 +55,7 @@ const FlightInfo = () => {
             <div className="des-from">
               <p>Destination To</p>
               <div className="flex flex-row">
-                <img src="./img/icons/Frame.svg" alt="" />
+                <img src={frame1} alt="" />
                 <select
                   className="outline-none px-2 py-2 w-full"
                   name="to"
@@ -87,7 +90,7 @@ const FlightInfo = () => {
             <div className="des-from">
               <p>Guests</p>
               <div className="flex flex-row">
-                <img src="./img/icons/Vector (1).svg" alt="" />
+                <img src={vector1} alt="" />
                 <select
                   className="outline-none px-2 py-2 w-full"
                   name="adults"
@@ -109,7 +112,7 @@ const FlightInfo = () => {
             <div className="des-from !border-r-0">
               <p>Class</p>
               <div className="flex flex-row">
-                <img src="./img/icons/Vector (3).svg" alt="" />
+                <img src={vector3} alt="" />
                 <select
                   className="outline-none px-2 py-2 w-full"
                   name="ticketClass"
@@ -130,7 +133,7 @@ const FlightInfo = () => {
               type="submit"
               id="lws-addCity"
               disabled={bookings.length >= 3 ? true : false}>
-              <svg
+              {/* <svg
                 width="15px"
                 height="15px"
                 fill="none"
@@ -142,8 +145,8 @@ const FlightInfo = () => {
                   strokeLinejoin="round"
                   d="M12 4.5v15m7.5-7.5h-15"
                 />
-              </svg>
-              <span className="text-sm">Book</span>
+              </svg> */}
+              <span className="text-sm">Book Flight</span>
             </button>
           </form>
         </div>

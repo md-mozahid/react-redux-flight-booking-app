@@ -6,6 +6,8 @@ const Navbar = () => {
         <img src={logo} alt="logo" />
         <div className="flex items-center">
           <a className="text-white min-w-[50px] font-medium">Home</a>
+          <a className="text-white min-w-[50px] font-medium">About</a>
+          <a className="text-white min-w-[50px] font-medium">Contact</a>
           <button className="log-btn btn">Login</button>
         </div>
       </div>

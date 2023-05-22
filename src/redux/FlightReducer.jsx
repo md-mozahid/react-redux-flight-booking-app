@@ -13,7 +13,7 @@ const initialState = {
   ],
 }
 
-let nextId = 1
+let nextId = 2
 
 const FlightReducer = (state = initialState, action) => {
   switch (action.type) {
