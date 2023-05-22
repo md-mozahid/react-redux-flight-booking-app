@@ -1,35 +1,30 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AddBooking } from "../redux/Actions";
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AddBooking } from '../redux/Actions'
 
 const FlightInfo = () => {
-  const [ticketBooking, setTicketBooking] = useState({
-    destinationFrom: "",
-    destinationTo: "",
-    journeyDate: "",
-    adults: 0,
-    ticketClass: "",
-  });
+  const [ticketBooking, setTicketBooking] = useState('')
 
-  const bookings = useSelector((state) => state.bookings);
-  const dispatch = useDispatch();
+  const bookings = useSelector((state) => state.bookings)
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(AddBooking(ticketBooking));
-  };
+    e.preventDefault()
+    dispatch(AddBooking(ticketBooking))
+  }
+
   const handleChange = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setTicketBooking((prev) => {
       return {
         ...prev,
         [e.target.name]: e.target.value,
-      };
-    });
-  };
+      }
+    })
+  }
+
   return (
     <section>
-      {/* <!-- Input Data --> */}
       <div className="mt-[160px] mx-4 md:mt-[160px] relative">
         <div className="bg-white rounded-md max-w-6xl w-full mx-auto">
           <form className="first-hero lws-inputform" onSubmit={handleSubmit}>
@@ -42,8 +37,7 @@ const FlightInfo = () => {
                   name="from"
                   id="lws-from"
                   required
-                  onChange={handleChange}
-                >
+                  onChange={handleChange}>
                   <option value="" hidden>
                     Please Select
                   </option>
@@ -63,9 +57,8 @@ const FlightInfo = () => {
                   className="outline-none px-2 py-2 w-full"
                   name="to"
                   id="lws-to"
-                  required
-                  onChange={handleChange}
-                >
+                  // required
+                  onChange={handleChange}>
                   <option value="" hidden>
                     Please Select
                   </option>
@@ -85,7 +78,7 @@ const FlightInfo = () => {
                 className="outline-none px-2 py-2 w-full date"
                 name="date"
                 id="lws-date"
-                required
+                // required
                 onChange={handleChange}
               />
             </div>
@@ -99,9 +92,8 @@ const FlightInfo = () => {
                   className="outline-none px-2 py-2 w-full"
                   name="adults"
                   id="lws-guests"
-                  required
-                  onChange={handleChange}
-                >
+                  // required
+                  onChange={handleChange}>
                   <option value="" hidden>
                     Please Select
                   </option>
@@ -122,9 +114,8 @@ const FlightInfo = () => {
                   className="outline-none px-2 py-2 w-full"
                   name="ticketClass"
                   id="lws-ticketClass"
-                  required
-                  onChange={handleChange}
-                >
+                  // required
+                  onChange={handleChange}>
                   <option value="" hidden>
                     Please Select
                   </option>
@@ -134,15 +125,18 @@ const FlightInfo = () => {
               </div>
             </div>
 
-            <button className="addCity" type="submit" id="lws-addCity">
+            <button
+              className="addCity"
+              type="submit"
+              id="lws-addCity"
+              disabled={bookings.length >= 3 ? true : false}>
               <svg
                 width="15px"
                 height="15px"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="2"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -155,7 +149,7 @@ const FlightInfo = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FlightInfo;
+export default FlightInfo

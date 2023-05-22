@@ -1,7 +1,8 @@
-import React from "react";
-import FlightItem from "./FlightItem";
+import { useSelector } from 'react-redux'
+import FlightItem from './FlightItem'
 
 const FlightList = () => {
+  const { bookings } = useSelector((state) => state)
   return (
     <>
       <div className="table-container">
@@ -17,12 +18,14 @@ const FlightList = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
-            <FlightItem />
+            {bookings.map((booking) => (
+              <FlightItem key={booking.id} booking={booking} />
+            ))}
           </tbody>
         </table>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FlightList;
+export default FlightList

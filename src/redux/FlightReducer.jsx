@@ -1,19 +1,20 @@
-import { ADD_BOOKING, REMOVE_BOOKING } from "./ActionTypes";
+import { ADD_BOOKING, REMOVE_BOOKING } from './ActionTypes'
 
 const initialState = {
   bookings: [
     {
       id: 1,
-      destinationFrom: "Dhaka",
-      destinationTo: "Bogura",
-      journeyDate: "2023-12-12",
-      Adults: 2,
-      ticketClass: "Business",
+      from: 'Saidpur',
+      to: 'Bogura',
+      date: '2025-12-12',
+      adults: 2,
+      ticketClass: 'Business',
     },
   ],
-};
+}
 
-const nextId = 2;
+let nextId = 1
+
 const FlightReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOKING:
@@ -26,17 +27,17 @@ const FlightReducer = (state = initialState, action) => {
             ...action.payload,
           },
         ],
-      };
+      }
     case REMOVE_BOOKING:
       return {
         ...state,
         bookings: state.bookings.filter(
           (booking) => booking.id !== action.payload
         ),
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default FlightReducer;
+export default FlightReducer
